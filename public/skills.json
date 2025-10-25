@@ -1,0 +1,74 @@
+[
+  {
+    "skillId": 1,
+    "skillName": "Beginner Guitar Lessons",
+    "providerName": "Alex Martin",
+    "providerEmail": "alex@skillswap.com",
+    "price": 20,
+    "rating": 4.8,
+    "slotsAvailable": 3,
+    "description": "Acoustic guitar classes for complete beginners. Learn basic chords, strumming, and simple songs.",
+    "image": "https://i.postimg.cc/3JbH8zHv/guitar-lessons.jpg",
+    "category": "Music"
+  },
+  {
+    "skillId": 2,
+    "skillName": "Spoken English Practice",
+    "providerName": "Sara Hossain",
+    "providerEmail": "sara@skillswap.com",
+    "price": 10,
+    "rating": 4.6,
+    "slotsAvailable": 5,
+    "description": "Conversational English sessions to boost confidence and fluency for non-native speakers.",
+    "image": "https://i.postimg.cc/MHzkJLVk/english-practice.jpg",
+    "category": "Language"
+  },
+  {
+    "skillId": 3,
+    "skillName": "Basic Web Development",
+    "providerName": "Ravi Patel",
+    "providerEmail": "ravi@skillswap.com",
+    "price": 25,
+    "rating": 4.9,
+    "slotsAvailable": 4,
+    "description": "Hands-on training on HTML, CSS, and JavaScript to build your first responsive website.",
+    "image": "https://i.postimg.cc/XNp2tJtN/web-dev.jpg",
+    "category": "Technology"
+  },
+  {
+    "skillId": 4,
+    "skillName": "Digital Painting for Beginners",
+    "providerName": "Nora Kim",
+    "providerEmail": "nora@skillswap.com",
+    "price": 15,
+    "rating": 4.7,
+    "slotsAvailable": 2,
+    "description": "Learn digital art techniques using Procreate and Photoshop. Perfect for art enthusiasts and hobbyists.",
+    "image": "https://i.postimg.cc/yNsyWcLs/digital-painting.jpg",
+    "category": "Art & Design"
+  },
+  {
+    "skillId": 5,
+    "skillName": "Yoga for Stress Relief",
+    "providerName": "Maya Sen",
+    "providerEmail": "maya@skillswap.com",
+    "price": 12,
+    "rating": 4.5,
+    "slotsAvailable": 6,
+    "description": "Gentle yoga sessions focused on relaxation, breathing, and mindfulness.",
+    "image": "https://i.postimg.cc/PqTwnC7K/yoga-lesson.jpg",
+    "category": "Health & Fitness"
+  },
+  {
+    "skillId": 6,
+    "skillName": "Intro to Photography",
+    "providerName": "Liam Carter",
+    "providerEmail": "liam@skillswap.com",
+    "price": 18,
+    "rating": 4.8,
+    "slotsAvailable": 5,
+    "description": "Master camera basics, lighting, and composition to capture professional-quality photos.",
+    "image": "https://i.postimg.cc/Z5R8nvjW/photography-class.jpg",
+    "category": "Photography"
+  }
+]
