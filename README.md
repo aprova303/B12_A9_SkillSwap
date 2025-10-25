@@ -1,16 +1,39 @@
-# React + Vite
+# Project Name:  SkillSwap – A Local Skill Exchange Platform
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+# Live Demo
 
-Currently, two official plugins are available:
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
 
-## React Compiler
+# Project Purpose
+SkillSwap is an interactive web platform where individuals can offer, learn, and trade skills within their local communities.  
+Whether it’s guitar lessons, language exchange, coding help, or yoga training, users can browse listings, rate experiences, and connect with local skill providers — all in one place.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+This platform empowers users to learn new skills, share knowledge, and build community connections while promoting collaboration and mutual growth.
 
-## Expanding the ESLint configuration
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+# Key Features
+ Offer & Learn Skills:Users can post skill listings or browse others to learn from.     
+ Interactive UI with Animations: Engaging transitions and visuals powered by Animate.css.  
+ Responsive Design:Fully optimized for mobile, tablet, and desktop screens.  
+Instant Notifications: Smooth user feedback using react-hot-toast.  
+ Modern Swiper Sliders:Dynamic display for featured skills and top-rated users.
+
+
+# Technologies Used
+- React.js  
+- Tailwind CSS  
+- DaisyUI  
+- Animate.css  
+- Swiper.js  
+- React Hot Toast  
+
+# Tools & Build:
+ Vite  
+ GitHub for version control  
+
+
+# NPM Packages Used
+
+npm install animate.css
+npm install react-hot-toast
+npm install swiper

@@ -1,18 +1,20 @@
 import React, { use, useState,useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
-+import toast from "react-hot-toast";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
   const {createUser,setUser,updateUser} = use(AuthContext)
+  // const { createUser, setUser, updateUser } = useContext(AuthContext);
    const [nameError,setNameError] = useState('') 
 
-   const navigate = useNavigate();
+   const navigate = useNavigate()
   const handleSignup = (e) => {
     console.log(e.target);
     const form = e.target;
+     e.preventDefault();
     const name = form.name.value;
     const email = form.email.value;
     const photo = form.photo.value;
@@ -34,8 +36,12 @@ const SignUp = () => {
          setUser({...user,displayName:name,
         photoURL:photo})
         navigate('/')
+           setUser({...user, displayName: name, photoURL: photo});
+        toast.success("Signed up successfully");
+        navigate("/", { replace: true });
       }).catch(error=>{
       console.log(error)
+       toast.error(error?.message || "Profile update failed");
       setUser(user)
       });
     
