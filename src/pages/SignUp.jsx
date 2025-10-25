@@ -1,10 +1,15 @@
-import React, { use, useState } from "react";
-import { Link } from "react-router";
+import React, { use, useState,useContext } from "react";
+import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
+import { useNavigate } from "react-router-dom";
+
++import toast from "react-hot-toast";
 
 const SignUp = () => {
-  const {createUser,setUser} = use(AuthContext)
+  const {createUser,setUser,updateUser} = use(AuthContext)
    const [nameError,setNameError] = useState('') 
+
+   const navigate = useNavigate();
   const handleSignup = (e) => {
     console.log(e.target);
     const form = e.target;
@@ -14,7 +19,7 @@ const SignUp = () => {
     const password = form.password.value;
 
     if(name.length < 5){
-      setNameError("namexjsnck")
+      setNameError("Name should be more than 5 character")
       return
     }else {
       setNameError('')
@@ -22,8 +27,18 @@ const SignUp = () => {
      createUser(email,password)
      .then(result=>{
       const user=result.user;
-      // console.log(user)
+      console.log(user)
+      updateUser({displayName:name,
+        photoURL:photo,
+      }).then(()=>{
+         setUser({...user,displayName:name,
+        photoURL:photo})
+        navigate('/')
+      }).catch(error=>{
+      console.log(error)
       setUser(user)
+      });
+    
      })
      .catch((error) => {
     const errorCode = error.code;

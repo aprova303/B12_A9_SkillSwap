@@ -4,6 +4,7 @@ import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../provider/AuthProvider';
 // import { toast } from 'react-toastify';
 import toast from "react-hot-toast";
+import { FaUser } from 'react-icons/fa';
 // import Login from '../pages/Login';
 const Navbar = () => {
   const {user,logOut}=use(AuthContext);
@@ -41,7 +42,21 @@ const Navbar = () => {
     </ul>
   </div>
    <div className="login-btn flex gap-5">
-        {/* <img src={user} alt="" /> */}
+        {/* <img className='w-12 rounded-full' src={`${user ? user.photoURL : <FaUser></FaUser>}`} alt="" /> */}
+
+         {user && user.photoURL ? (
+         <img
+           className="w-12 h-12 rounded-full object-cover"
+           src={user.photoURL}
+           alt={user.displayName || 'User'}
+         />
+       ) : (
+         <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl text-gray-600">
+           <FaUser />
+         </div>
+       )}
+
+       
         {
           user ? <button onClick={handleLogOut} className="btn btn-primary">LogOut</button> : ( <Link to='/auth/login' className="btn btn-primary">Login</Link>
      

@@ -76,7 +76,7 @@ export default function HeroSlider() {
                 </p>
 
                 {/* CTA buttons */}
-                <div className="mt-6 flex items-center justify-center gap-3">
+                {/* <div className="mt-6 flex items-center justify-center gap-3">
                   <a
                     href="/signup"
                     className="inline-block rounded-md bg-indigo-600 px-5 py-2 text-sm sm:text-base font-medium text-white shadow hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-indigo-400"
@@ -89,7 +89,7 @@ export default function HeroSlider() {
                   >
                     How it works
                   </a>
-                </div>
+                </div> */}
               </div>
             </div>
           </SwiperSlide>

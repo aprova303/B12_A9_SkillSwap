@@ -4,6 +4,7 @@ import { useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
+import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [error,setError] = useState("")
@@ -58,6 +59,8 @@ const Login = () => {
                 <button type="submit" className="btn btn-neutral mt-4">
                   Login
                 </button>
+
+                <button className="btn btn-secondary btn-outline w-full mt-3"><FcGoogle></FcGoogle> Login with Google</button>
 
                 <p className="my-3">
                   Don't Have An Account?{" "}
