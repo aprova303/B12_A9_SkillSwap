@@ -1,13 +1,14 @@
-import React, { use } from 'react';
+import React, { use,useContext } from 'react';
 import { SiSololearn } from 'react-icons/si';
-import { Link, NavLink } from 'react-router';
+// import { Link, NavLink } from 'react-router';
+import { Link, NavLink } from 'react-router-dom';
 import { AuthContext } from '../provider/AuthProvider';
-// import { toast } from 'react-toastify';
 import toast from "react-hot-toast";
 import { FaUser } from 'react-icons/fa';
-// import Login from '../pages/Login';
+
+
 const Navbar = () => {
-  const {user,logOut}=use(AuthContext);
+  const {user,logOut}=useContext(AuthContext);
   const handleLogOut=()=>{
    logOut()
    .then(()=>{
@@ -59,7 +60,7 @@ const Navbar = () => {
      
         )}
          </div> */}
-        <div className="login-btn flex items-center gap-5">
+         <div className="login-btn flex items-center gap-5">
         <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'Guest'}>
           {user && user.photoURL ? (
             <img

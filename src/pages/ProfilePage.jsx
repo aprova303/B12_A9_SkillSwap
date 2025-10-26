@@ -1,9 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext, useState ,useEffect } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
-import { Link, Links, useLocation } from 'react-router';
+// import { Link, Links, useLocation,Navigate } from 'react-router';
+import { Link, Links, useLocation,Navigate } from 'react-router-dom';
 import Login from './Login';
-import { Navigate } from 'react-router';
 
 const ProfilePage = () => {
   const { user, updateProfile } = useContext(AuthContext) || {};
@@ -13,7 +13,15 @@ const ProfilePage = () => {
 
 
   const location = useLocation();
-console.log(location)
+
+  useEffect(() => {
+    setName(user?.displayName || '');
+    setPhoto(user?.photoURL || '');
+  }, [user]);
+
+
+
+
 
   const handleUpdate = async (e) => {
     e?.preventDefault();

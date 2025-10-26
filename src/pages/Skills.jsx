@@ -5,7 +5,7 @@ import SkillCard from './SkillCard';
 const skillsPromise=fetch('/skills.json').then(res=>res.json())
 const Skills = () => {
     const {skillId} = useParams()
-   console.log(skillId)
+//    console.log(skillId)
     const data = useLoaderData()
     console.log(data)
     const skills = use(skillsPromise)

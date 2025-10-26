@@ -1,6 +1,6 @@
 # Project Name:  SkillSwap – A Local Skill Exchange Platform
 
-# Live Demo
+# Live Demo : 
 
 
 
@@ -28,12 +28,12 @@ Instant Notifications: Smooth user feedback using react-hot-toast.
 - React Hot Toast  
 
 # Tools & Build:
- Vite  
- GitHub for version control  
+ -Vite  
+ -GitHub for version control  
 
 
 # NPM Packages Used
 
-npm install animate.css
-npm install react-hot-toast
-npm install swiper
+-npm install animate.css
+-npm install react-hot-toast
+-npm install swiper

@@ -12,7 +12,6 @@ const SignUp = () => {
 
 
   const handleSignup = (e) => {
-    console.log(e.target);
     const form = e.target;
      e.preventDefault();
     const name = form.name.value;
@@ -30,7 +29,7 @@ const SignUp = () => {
      createUser(email,password)
      .then(result=>{
       const user=result.user;
-      console.log(user)
+      // console.log(user)
     // //  setUser({...user, displayName: name, photoURL: photo});
     //     toast.success("Signed up successfully");
     //       navigate(location.state || "/");
