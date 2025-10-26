@@ -30,7 +30,8 @@ const router = createBrowserRouter([
       },
       {
         path:'/skillDetails/:id',
-        Component:SkillDetails,
+        // Component:SkillDetails,
+        element:(<PrivateRoute><SkillDetails></SkillDetails></PrivateRoute>),
         loader: () => fetch("/skills.json"),
       }
     ],
