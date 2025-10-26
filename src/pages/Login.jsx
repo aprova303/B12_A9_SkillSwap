@@ -47,7 +47,7 @@ const Login = () => {
   };
 
   const handleForgetPassword = () => {
-    .log("forget", emailRef.current.value);
+    // .log("forget", emailRef.current.value);
     const forgetEmail = emailRef.current.value;
     sendPasswordResetEmail(auth, forgetEmail)
       .then(() => {

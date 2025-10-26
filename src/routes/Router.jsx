@@ -9,6 +9,7 @@ import SignUp from "../pages/SignUp";
 import AuthLayout from "../layout/AuthLayout";
 import ProfilePage from "../pages/ProfilePage";
 import SkillDetails from "../pages/SkillDetails";
+import PrivateRoute from "../provider/PrivateRoute";
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,12 +21,12 @@ const router = createBrowserRouter([
       },
       {
         path: "/skills/:id",
-        Component: Skills,
+       element: (<PrivateRoute><Skills></Skills></PrivateRoute>),
         loader: () => fetch("/skills.json"),
       },
       {
         path: "/profile",
-        Component: ProfilePage,
+        element: (<PrivateRoute><ProfilePage></ProfilePage></PrivateRoute>),
       },
       {
         path:'/skillDetails/:id',
@@ -45,11 +46,11 @@ const router = createBrowserRouter([
     children: [
       {
         path: "/auth/login",
-        Component: Login,
+       Component:Login
       },
       {
         path: "/auth/signup",
-        Component: SignUp,
+       Component:SignUp
       },
     ],
   },
