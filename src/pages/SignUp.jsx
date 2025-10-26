@@ -2,15 +2,15 @@ import React, { use, useState,useContext } from "react";
 import { Link, useNavigate } from "react-router";
 import { AuthContext } from "../provider/AuthProvider";
 // import { useNavigate } from "react-router-dom";
-
 import toast from "react-hot-toast";
 
 const SignUp = () => {
-  const {createUser,setUser,updateUser} = use(AuthContext)
+   const {createUser,setUser,updateUser} = use(AuthContext)
   // const { createUser, setUser, updateUser } = useContext(AuthContext);
-   const [nameError,setNameError] = useState('') 
-
+     const[error,setError] = useState('')
    const navigate = useNavigate()
+
+
   const handleSignup = (e) => {
     console.log(e.target);
     const form = e.target;
@@ -20,25 +20,30 @@ const SignUp = () => {
     const photo = form.photo.value;
     const password = form.password.value;
 
-    if(name.length < 5){
-      setNameError("Name should be more than 5 character")
-      return
-    }else {
-      setNameError('')
+    const passwordPattern = /^(?=.*[a-z])(?=.*[A-Z]).{6,}$/
+    if(!passwordPattern.test(password)){
+      setError("Password must be at least 6 characters long and contained at least one uppercase and one lowercase letter.")
+      console.log(error)
+      return;
     }
+
      createUser(email,password)
      .then(result=>{
       const user=result.user;
       console.log(user)
+    // //  setUser({...user, displayName: name, photoURL: photo});
+    //     toast.success("Signed up successfully");
+    //       navigate(location.state || "/");
+    //     setUser(user)
       updateUser({displayName:name,
         photoURL:photo,
       }).then(()=>{
          setUser({...user,displayName:name,
         photoURL:photo})
-        navigate('/')
-           setUser({...user, displayName: name, photoURL: photo});
+          //  setUser({...user, displayName: name, photoURL: photo});
         toast.success("Signed up successfully");
-        navigate("/", { replace: true });
+          navigate(location.state || "/");
+         
       }).catch(error=>{
       console.log(error)
        toast.error(error?.message || "Profile update failed");
@@ -71,8 +76,8 @@ const SignUp = () => {
                   placeholder="Name"
                   required
                 />
-                {nameError && <p className="
-                text-error text-xs">{nameError}</p>}
+                {/* {nameError && <p className="
+                text-error text-xs">{nameError}</p>} */}
 
                 {/* email */}
                 <label className="label">Email</label>
@@ -107,6 +112,10 @@ const SignUp = () => {
                 <button type="submit" className="btn btn-neutral mt-4">
                   Signup
                 </button>
+
+                {
+                   error && <p className="text-red-500 text-xs mt-2">{error}</p>
+                }
                 <p className="my-3">
                   Already Have An Account?{" "}
                   <Link

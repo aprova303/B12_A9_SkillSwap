@@ -1,7 +1,6 @@
 // src/components/HeroSlider.jsx
 import React from "react";
 import { Swiper, SwiperSlide } from "swiper/react";
-// import { Autoplay, Pagination, Navigation, EffectFade, A11y } from "swiper";
 import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 
 const slides = [

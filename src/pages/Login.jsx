@@ -1,13 +1,16 @@
-// ...existing code...
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { useContext } from "react";
 import { Link, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
 import toast from "react-hot-toast";
 import { FcGoogle } from "react-icons/fc";
+import { sendPasswordResetEmail } from "firebase/auth";
+import { auth } from "../firebase/firebase.config";
 
 const Login = () => {
-  const [error,setError] = useState("")
+  const [error, setError] = useState("");
+
+  const emailRef = useRef();
   const { signIn, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
@@ -22,25 +25,38 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         toast.success("Logged in successfully");
-        // navigate(from, { replace: true });
-        navigate(location.state || '/')
+        navigate(location.state || "/");
       })
       .catch((error) => {
         const errorCode = error.code;
         toast.error(error?.message || "Login failed");
-        setError(errorCode)
+        setError(errorCode);
       });
   };
 
-const handleGoogleSignIn = ()=>{
- signInWithGoogle()
- .then(result=>{
-  toast.success("Logged in successfully with Google")
-  navigate(location?.state || '/')
- }).catch(error=>{
-  console.log(error)
- })
-}
+  const handleGoogleSignIn = () => {
+    signInWithGoogle()
+      .then((result) => {
+        toast.success("Logged in successfully with Google");
+        navigate(location?.state || "/");
+      })
+      .catch((error) => {
+        toast.error(error?.message || "Login failed");
+        console.log(error);
+      });
+  };
+
+  const handleForgetPassword = () => {
+    console.log("forget", emailRef.current.value);
+    const forgetEmail = emailRef.current.value;
+    sendPasswordResetEmail(auth, forgetEmail)
+      .then(() => {
+        toast.success("Please check your email");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
 
   return (
     <div>
@@ -53,15 +69,25 @@ const handleGoogleSignIn = ()=>{
             <form onSubmit={handleLogin} className="card-body">
               <fieldset className="fieldset">
                 <label className="label">Email</label>
-                <input name="email" type="email" className="input" 
-                placeholder="Email" 
-                required/>
+                <input
+                  name="email"
+                  type="email"
+                  className="input"
+                  placeholder="Email"
+                  ref={emailRef}
+                  required
+                />
 
                 <label className="label">Password</label>
-                <input name="password" type="password" className="input"
-                 placeholder="Password"  required/>
+                <input
+                  name="password"
+                  type="password"
+                  className="input"
+                  placeholder="Password"
+                  required
+                />
 
-                <div>
+                <div onClick={handleForgetPassword}>
                   <a className="link link-hover">Forgot password?</a>
                 </div>
 
@@ -71,11 +97,19 @@ const handleGoogleSignIn = ()=>{
                   Login
                 </button>
 
-                <button onClick={handleGoogleSignIn} className="btn btn-secondary btn-outline w-full mt-3"><FcGoogle></FcGoogle> Login with Google</button>
+                <button
+                  onClick={handleGoogleSignIn}
+                  className="btn btn-secondary btn-outline w-full mt-3"
+                >
+                  <FcGoogle></FcGoogle> Login with Google
+                </button>
 
                 <p className="my-3">
                   Don't Have An Account?{" "}
-                  <Link className="text-secondary font-semibold" to="/auth/signup">
+                  <Link
+                    className="text-secondary font-semibold"
+                    to="/auth/signup"
+                  >
                     SignUp
                   </Link>
                 </p>
@@ -89,4 +123,3 @@ const handleGoogleSignIn = ()=>{
 };
 
 export default Login;
-// ...existing code...
