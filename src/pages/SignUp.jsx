@@ -93,7 +93,7 @@ const SignUp = () => {
                 <label className="label">Photo URL</label>
                 <input
                   name="photo"
-                  type="text"
+                  type="url"
                   className="input"
                   placeholder="Photo URL"
                   required

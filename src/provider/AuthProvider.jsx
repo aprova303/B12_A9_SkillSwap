@@ -1,6 +1,6 @@
 import React, { createContext, useEffect, useState } from "react";
 import app from "../firebase/firebase.config";
-import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
+import { createUserWithEmailAndPassword, getAuth, GoogleAuthProvider, onAuthStateChanged, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile, } from "firebase/auth";
 
 export const AuthContext = createContext();
 
@@ -29,6 +29,15 @@ const AuthProvider = ({ children }) => {
   const updateUser = (updatedData)=>{
          return updateProfile(auth.currentUser,updatedData)
   }
+
+   // expose as updateProfile to match usage in ProfilePage
+  // const updateProfile = (profile) => {
+  //   if (!auth.currentUser) return Promise.reject(new Error("No authenticated user"));
+  //   return firebaseUpdateProfile(auth.currentUser, profile).then(() => {
+  //     // keep local state in sync (auth.currentUser is updated by Firebase)
+  //     setUser({ ...auth.currentUser });
+  //   });
+  // };
 
   const logOut = ()=>{
     return signOut(auth);

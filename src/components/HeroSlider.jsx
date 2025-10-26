@@ -6,10 +6,10 @@ import { Autoplay, Pagination, Navigation, EffectFade } from "swiper/modules";
 const slides = [
   {
     id: 1,
-    title: "Welcome to SkillSwap – A Local Skill Exchange Platform",
+    title: "Welcome to SkillSwap  A Local Skill Exchange Platform",
     subtitle: "Find, learn, and trade skills in your neighborhood.",
     image:
-      "https://ibb.co.com/LXf5N0c8",
+      "https://i.ibb.co.com/3mXRCVG4/vitaly-gariev-Am-VA0-IG-72w-unsplash.jpg",
     alt: "Person teaching guitar outdoors"
   },
   {
@@ -17,7 +17,7 @@ const slides = [
     title: "Welcome to SkillSwap – A Local Skill Exchange Platform",
     subtitle: "Connect with friendly local providers and learners.",
     image:
-      "https://i.postimg.cc/Pr6J3GZg/language-exchange.jpg",
+      "https://i.ibb.co.com/8nrN83zy/europeana-QXw31-Bkx-Wh-M-unsplash.jpg",
     alt: "Two people doing language exchange with notebooks"
   },
   {
@@ -25,7 +25,7 @@ const slides = [
     title: "Welcome to SkillSwap – A Local Skill Exchange Platform",
     subtitle: "Share what you know or discover something new nearby.",
     image:
-      "https://i.postimg.cc/0y8G7J6k/coding-session.jpg",
+      "https://i.ibb.co.com/7xgnFvwb/hitesh-choudhary-ee4g8na-Rk-Pk-unsplash.jpg",
     alt: "Casual coding tutoring session"
   }
 ];

@@ -40,9 +40,7 @@ const Navbar = () => {
         {links}
     </ul>
   </div>
-   <div className="login-btn flex gap-5">
-        {/* <img className='w-12 rounded-full' src={`${user ? user.photoURL : <FaUser></FaUser>}`} alt="" /> */}
-
+   {/* <div className="login-btn flex gap-5">
          {user && user.photoURL ? (
          <img
            className="w-12 h-12 rounded-full object-cover"
@@ -60,8 +58,32 @@ const Navbar = () => {
           user ? <button onClick={handleLogOut} className="btn btn-primary">LogOut</button> : ( <Link to='/auth/login' className="btn btn-primary">Login</Link>
      
         )}
-         </div>
-       
+         </div> */}
+        <div className="login-btn flex items-center gap-5">
+        <div className="tooltip tooltip-bottom" data-tip={user?.displayName || 'Guest'}>
+          {user && user.photoURL ? (
+            <img
+              className="w-12 h-12 rounded-full object-cover border-2 border-primary hover:border-secondary transition-colors"
+              src={user.photoURL}
+              alt={user.displayName || 'User'}
+            />
+          ) : (
+            <div className="w-12 h-12 rounded-full bg-gray-200 flex items-center justify-center text-xl text-gray-600 hover:bg-gray-300 transition-colors">
+              <FaUser />
+            </div>
+          )}
+        </div>
+
+        {user ? (
+          <button onClick={handleLogOut} className="btn btn-primary">
+            LogOut
+          </button>
+        ) : (
+          <Link to="/auth/login" className="btn btn-primary">
+            Login
+          </Link>
+        )}
+      </div>
 </div>
     );
 };

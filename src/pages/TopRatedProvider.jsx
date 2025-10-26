@@ -29,7 +29,7 @@ const TopRatedProviders = ({ count = 3 }) => {
 
   return (
     <section className="rounded-lg p-6 shadow-sm bg-white">
-      <h2 className="text-2xl font-semibold mb-4">Top Rated Providers</h2>
+      <h2 className="text-3xl text-center font-bold mb-6 mt-6">Top Rated Providers</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         {items.map((s) => (
           <div key={s.skillId} className="card bg-base-100 shadow-md">

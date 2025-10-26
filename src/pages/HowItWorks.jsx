@@ -11,7 +11,7 @@ const Step = ({ num, title, children }) => (
 const HowItWorks = () => {
   return (
     <section className="rounded-lg p-6 shadow-sm bg-base-100">
-      <h2 className="text-2xl font-semibold mb-4">How It Works</h2>
+      <h2 className="text-3xl font-bold mb-4 text-center">How It Works</h2>
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
         <Step num="1" title="Browse Skills">
           Explore categories and provider profiles to find the right skill.
