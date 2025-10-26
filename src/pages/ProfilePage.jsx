@@ -2,12 +2,19 @@
 import React, { useContext, useState } from 'react';
 import { AuthContext } from '../provider/AuthProvider';
 import toast from 'react-hot-toast';
+import { Link, Links, useLocation } from 'react-router';
+import Login from './Login';
+import { Navigate } from 'react-router';
 
 const ProfilePage = () => {
   const { user, updateProfile } = useContext(AuthContext) || {};
   const [editing, setEditing] = useState(false);
   const [name, setName] = useState(user?.displayName || '');
   const [photo, setPhoto] = useState(user?.photoURL || '');
+
+
+  const location = useLocation();
+console.log(location)
 
   const handleUpdate = async (e) => {
     e?.preventDefault();
@@ -28,10 +35,7 @@ const ProfilePage = () => {
 
   if (!user) {
     return (
-      <div className="p-6 text-center">
-        <h2 className="text-3xl font-semibold">Not signed in</h2>
-        <p className="text-lg opacity-70 pt-5">Please login to view your profile.</p>
-      </div>
+      <Navigate state={location.pathname} to='/auth/login'></Navigate>
     );
   }
 

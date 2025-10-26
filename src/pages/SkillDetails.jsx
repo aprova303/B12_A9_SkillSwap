@@ -3,6 +3,7 @@ import React, { useState, useContext, useEffect } from "react";
 import toast from "react-hot-toast";
 import { useLoaderData, useParams, useNavigate, useLocation } from "react-router-dom";
 import { AuthContext } from "../provider/AuthProvider";
+import { Navigate } from "react-router";
 
 const SkillDetails = () => {
   const skills = useLoaderData(); // expects array loaded by route loader (fetch('/skills.json'))
@@ -10,17 +11,16 @@ const SkillDetails = () => {
   const skill = Array.isArray(skills)
     ? skills.find((s) => String(s.skillId) === String(id))
     : null;
-
-  const { user } = useContext(AuthContext);
+  const { user } = useContext(AuthContext) || {};
   const navigate = useNavigate();
   const location = useLocation();
 
-  // redirect to login if not authenticated; keep current path in state so Login can return
-  useEffect(() => {
-    if (!user) {
-      navigate("/auth/login", { state: { from: location.pathname }, replace: true });
+
+   if (!user) {
+      return (
+        <Navigate state={location.pathname} to='/auth/login'></Navigate>
+      );
     }
-  }, [user, navigate, location]);
 
   // Form state
   const [name, setName] = useState("");

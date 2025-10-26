@@ -8,7 +8,7 @@ import { FcGoogle } from "react-icons/fc";
 
 const Login = () => {
   const [error,setError] = useState("")
-  const { signIn } = useContext(AuthContext);
+  const { signIn, signInWithGoogle } = useContext(AuthContext);
   const navigate = useNavigate();
   const location = useLocation();
   const from = location.state?.from || "/";
@@ -22,7 +22,8 @@ const Login = () => {
     signIn(email, password)
       .then((result) => {
         toast.success("Logged in successfully");
-        navigate(from, { replace: true });
+        // navigate(from, { replace: true });
+        navigate(location.state || '/')
       })
       .catch((error) => {
         const errorCode = error.code;
@@ -30,6 +31,16 @@ const Login = () => {
         setError(errorCode)
       });
   };
+
+const handleGoogleSignIn = ()=>{
+ signInWithGoogle()
+ .then(result=>{
+  toast.success("Logged in successfully with Google")
+  navigate(location?.state || '/')
+ }).catch(error=>{
+  console.log(error)
+ })
+}
 
   return (
     <div>
@@ -60,7 +71,7 @@ const Login = () => {
                   Login
                 </button>
 
-                <button className="btn btn-secondary btn-outline w-full mt-3"><FcGoogle></FcGoogle> Login with Google</button>
+                <button onClick={handleGoogleSignIn} className="btn btn-secondary btn-outline w-full mt-3"><FcGoogle></FcGoogle> Login with Google</button>
 
                 <p className="my-3">
                   Don't Have An Account?{" "}
